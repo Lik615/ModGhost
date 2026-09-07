@@ -1,0 +1,66 @@
+{{!-- 本地全文搜索弹窗 --}}
+<div id="search-modal" class="search-modal" role="dialog" aria-modal="true" aria-label="站内搜索" hidden>
+    <div class="search-modal-overlay" data-search-close></div>
+    <div class="search-modal-container">
+        <div class="search-modal-header">
+            <div class="search-input-wrapper">
+                <svg class="search-input-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                <input
+                    type="text"
+                    id="search-input"
+                    class="search-input"
+                    placeholder="输入关键词搜索文章..."
+                    autocomplete="off"
+                    aria-label="搜索文章"
+                >
+                <button class="search-close-btn" data-search-close aria-label="关闭搜索">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div class="search-modal-body">
+            {{!-- 搜索状态提示 --}}
+            <div id="search-status" class="search-status">
+                <span class="search-loading" hidden>正在加载文章索引...</span>
+                <span class="search-ready" hidden>输入关键词开始搜索</span>
+            </div>
+
+            {{!-- 搜索结果区域 --}}
+            <div id="search-results" class="search-results" hidden></div>
+
+            {{!-- 无结果建议区域 --}}
+            <div id="search-no-results" class="search-no-results" hidden>
+                <div class="no-results-icon">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        <line x1="8" y1="11" x2="14" y2="11"></line>
+                    </svg>
+                </div>
+                <h3 class="no-results-title">没有找到相关文章</h3>
+                <p class="no-results-desc">试试其他关键词，或者浏览以下推荐内容</p>
+
+                <div class="no-results-suggestions">
+                    <div class="suggestions-section">
+                        <h4 class="suggestions-label">热门标签</h4>
+                        <div id="suggestion-tags" class="suggestion-tags"></div>
+                    </div>
+                    <div class="suggestions-section">
+                        <h4 class="suggestions-label">推荐阅读</h4>
+                        <div id="suggestion-posts" class="suggestion-posts"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="search-modal-footer">
+            <span class="search-footer-info">本地全文索引 · 共 <span id="search-index-count">0</span> 篇文章</span>
+            <kbd class="search-kbd">ESC</kbd> <span class="search-footer-hint">关闭</span>
+        </div>
+    </div>
+</div>
