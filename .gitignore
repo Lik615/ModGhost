@@ -1,0 +1,43 @@
+# Ghost runtime data (never commit)
+runtime/content/data/
+runtime/content/logs/
+runtime/content/images/
+runtime/content/media/
+runtime/content/settings/
+runtime/content/themes/
+runtime/content/adapters/
+runtime/system/
+runtime/config.development.json
+runtime/config.production.json
+runtime/.ghost-cli
+runtime/node_modules/
+
+# Environment and secrets
+.env
+.env.local
+*.key
+*.pem
+*.crt
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Build artifacts
+dist/
+build/
+*.zip
+!theme/*.zip
