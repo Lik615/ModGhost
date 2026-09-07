@@ -1,4 +1,4 @@
-/**
+﻿/**
  * 本地全文索引搜索功能
  * 功能：从 Ghost Content API 获取文章，构建本地索引，支持搜索高亮和无结果建议
  */
@@ -27,6 +27,13 @@
     const indexCount = document.getElementById('search-index-count');
     const suggestionTags = document.getElementById('suggestion-tags');
     const suggestionPosts = document.getElementById('suggestion-posts');
+
+    // 隐藏 Ghost 原生搜索组件
+    const nativeSearch = document.getElementById("sodo-search-root");
+    if (nativeSearch) {
+        nativeSearch.style.display = "none";
+        nativeSearch.style.visibility = "hidden";
+    }
 
     if (!modal || !searchInput) return;
 
@@ -350,7 +357,7 @@
 
     // 事件绑定
     // 搜索按钮点击（替换原生 Ghost 搜索）
-    document.querySelectorAll('[data-ghost-search]').forEach(btn => {
+    document.querySelectorAll('[data-custom-search]').forEach(btn => {
         btn.addEventListener('click', (e) => {
             e.preventDefault();
             e.stopPropagation();
