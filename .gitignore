@@ -41,3 +41,15 @@ dist/
 build/
 *.zip
 !theme/*.zip
+
+# Theme build artifacts
+theme/oss-blog-theme/assets/built/
+theme/oss-blog-theme/node_modules/
+theme/oss-blog-theme/.pnpm-store/
+
+# Screenshots
+*.png
+!docs/images/*.png
+
+# Temporary files
+pr_screenshot.png
