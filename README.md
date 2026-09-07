@@ -46,29 +46,9 @@
 
 ### 系统架构
 
-```mermaid
-graph TD
-    User[访客/会员] --> Theme[自定义主题 oss-blog-theme]
-    Theme -->|页面渲染| Ghost[Ghost 核心服务]
-    Theme -->|Content API| Ghost
-    Admin[管理员] --> AdminUI[Ghost Admin 管理后台]
-    AdminUI --> Ghost
-    Ghost -->|Knex/Bookshelf| DB[(SQLite 数据库)]
-    Ghost -->|会员/评论| DB
-    Search[本地全文搜索模块] -->|Content API| Ghost
-    Search -->|索引缓存| Memory[浏览器内存]
-    
-    subgraph 二次开发
-        Theme
-        Search
-    end
-    
-    subgraph Ghost 原生
-        Ghost
-        AdminUI
-        DB
-    end
-```
+![项目总体架构](docs/images/architecture.png)
+
+*图1 项目总体架构：访客/会员通过自定义主题访问，搜索模块通过 Content API 获取数据，管理员通过 Admin 管理内容，所有数据存储在 SQLite 数据库中，支持备份导出与恢复。*
 
 ## 环境要求
 
