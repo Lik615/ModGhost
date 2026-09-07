@@ -306,23 +306,77 @@ theme/oss-blog-theme/
 
 ## 个人开发记录
 
+### Git 远程仓库配置
+
+本实验使用个人 Git 仓库，保留原项目为 upstream，个人实验仓库为 origin：
+
+```bash
+# 查看远程仓库配置
+git remote -v
+
+# 输出示例：
+# origin    https://github.com/Lik615/ModGhost.git (fetch)
+# origin    https://github.com/Lik615/ModGhost.git (push)
+# upstream  https://github.com/TryGhost/Ghost.git (fetch)
+# upstream  https://github.com/TryGhost/Ghost.git (push)
+```
+
+| 远程 | 地址 | 用途 |
+|------|------|------|
+| origin | https://github.com/Lik615/ModGhost | 个人实验仓库，提交代码和 PR |
+| upstream | https://github.com/TryGhost/Ghost | 上游原项目，用于跟踪上游更新 |
+
+### Git 工作流
+
+```bash
+# 创建功能分支
+git switch -c feature/blog-enhancement
+
+# 查看修改
+git status
+
+# 提交修改
+git add <实际修改的文件>
+git commit -m "feat(theme): add related-posts panel"
+
+# 推送到个人仓库
+git push -u origin feature/blog-enhancement
+
+# 创建 PR，Code Review 后合并到 main
+```
+
 ### Git 提交记录
 
-| 提交 | 说明 |
-|------|------|
-| feat: init project structure | 初始化项目目录和 Git 仓库 |
-| feat: install Ghost baseline | 安装 Ghost v6.59.0 基线 |
-| feat: create demo content | 创建8篇演示文章、4个标签、2个会员 |
-| feat: custom theme with search | 自定义主题，实现本地全文搜索 |
-| docs: add baseline and architecture | 添加基线记录和架构文档 |
-| test: add acceptance test cases | 添加18个验收测试用例 |
-| docs: complete README | 完成项目说明文档 |
+| 提交 | 类型 | 说明 |
+|------|------|------|
+| ede7d54 | chore | 初始化项目结构和 .gitignore |
+| 2febc70 | docs | 添加基线记录和架构文档 |
+| 9034864 | feat(theme) | 自定义主题开发（基于 Source v1.7.2） |
+| fc7ae6a | feat(search) | 本地全文搜索实现（高亮+无结果建议） |
+| da7e9db | test | 添加18个验收测试用例和辅助脚本 |
+| 735b52e | docs | 完成 README 和 NOTICE |
+| ab7e88e | chore | 补充完整主题源码、PR/Issue 模板、贡献指南 |
+| 5b687cf | docs | 添加拓展功能设计文档 |
+
+> 共 8 个非合并 Commit，覆盖基线、核心功能、自主功能、测试和文档，满足"至少5个可解释的非合并 Commit"要求。
+
+### Issue 与 PR 记录
+
+| 编号 | 类型 | 标题 | 状态 |
+|------|------|------|------|
+| #1 | PR | feat: 自定义主题与本地全文搜索功能 | 已合并 |
+| #2 | Issue | [主题改造] 基于 Source v1.7.2 自定义主题开发 | 已关闭 |
+| #3 | Issue | [搜索验收] 本地全文索引搜索功能测试 | 已关闭 |
+| #4 | Issue | [内容恢复] 数据导出与恢复验证 | 已关闭 |
+
+PR #1 包含完整的自我 Code Review 记录，并关联 Issue #2 #3 #4。
 
 ### 开发过程证据
 
 - 主题源码：`theme/oss-blog-theme/`
 - 架构文档：`docs/architecture.md`
 - 基线记录：`docs/baseline.md`
+- 功能设计：`docs/feature-design.md`
 - 测试用例：`tests/acceptance.md`
 - 辅助脚本：`scripts/`
 - Git 提交历史：`git log --oneline --graph --decorate --all`
