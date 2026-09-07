@@ -1,4 +1,4 @@
-# 开源个人博客系统
+﻿# 开源个人博客系统
 
 基于 Ghost 开源博客平台二次开发的个人博客系统，支持文章发布、标签分类、会员评论和本地全文搜索。
 
@@ -355,8 +355,8 @@ git push -u origin feature/blog-enhancement
 | fc7ae6a | feat(search) | 本地全文搜索实现（高亮+无结果建议） |
 | da7e9db | test | 添加18个验收测试用例和辅助脚本 |
 | 735b52e | docs | 完成 README 和 NOTICE |
-| ab7e88e | chore | 补充完整主题源码、PR/Issue 模板、贡献指南 |
-| 5b687cf | docs | 添加拓展功能设计文档 |
+| e20171d | chore | 补充完整主题源码、PR/Issue 模板、贡献指南 |
+| 4365a1e | docs | 添加拓展功能设计文档 |
 
 > 共 8 个非合并 Commit，覆盖基线、核心功能、自主功能、测试和文档，满足"至少5个可解释的非合并 Commit"要求。
 
